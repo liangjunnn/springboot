@@ -31,7 +31,13 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-
+    /**
+     * @Author : LiAng_Jun
+     * @Description : 根据用户唯一编号查询用户信息
+     * @param id 用户唯一编号
+     * @Date : 2020/1/10 15:31
+     * @Return : com.lj.response.user.UserResponse
+     **/
     public UserResponse findUserInfo(Long id) throws UserException {
         UserResponse userResponse = userMapper.selectUserInfo(id);
         if (null == userResponse) {
