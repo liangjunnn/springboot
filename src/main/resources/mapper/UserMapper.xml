@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lj.mapper.usermapper.UserMapper">
+    <select id="selectUserInfo" resultType="com.lj.response.user.UserResponse">
+      SELECT user_name name
+        ,user_address address
+        ,create_time createTime
+      FROM user
+      WHERE id = #{id}
+    </select>
+
+    <select id="selectUserLimit" resultType="com.lj.response.user.UserLimitResonse">
+        SELECT user_name userName
+        ,user_sex userSex
+        ,user_age userAge
+        ,user_address userAddress
+        FROM user
+        <where>
+            <if test="obj.userName != null and obj.userName != ''">
+                AND INSTR (user_name,#{obj.userName})
+            </if>
+        </where>
+    </select>
+
+    <select id="selectExpireUser" resultType="java.lang.Long">
+        SELECT id
+        FROM user
+        WHERE TIMESTAMPDIFF(HOUR, create_time, NOW()) > 1
+    </select>
+
+    <update id="updateUserStatus">
+       UPDATE user
+        SET is_deleted = 0
+        WHERE id = #{id}
+    </update>
+</mapper>
