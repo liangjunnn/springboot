@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lj.mapper.usermapper.UserMapper">
-    <select id="selectUserInfo" resultType="com.lj.response.user.UserResponse">
+    <select id="selectUserInfo" resultType="com.lj.response.UserResponse">
       SELECT user_name name
         ,user_address address
         ,create_time createTime
@@ -10,7 +10,7 @@
       WHERE id = #{id}
     </select>
 
-    <select id="selectUserLimit" resultType="com.lj.response.user.UserLimitResonse">
+    <select id="selectUserLimit" resultType="com.lj.response.UserLimitResonse">
         SELECT user_name userName
         ,user_sex userSex
         ,user_age userAge

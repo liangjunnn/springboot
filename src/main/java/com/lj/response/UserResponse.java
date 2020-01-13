@@ -1,4 +1,4 @@
-package com.lj.response.user;
+package com.lj.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

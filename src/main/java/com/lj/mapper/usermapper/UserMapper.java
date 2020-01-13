@@ -1,7 +1,7 @@
 package com.lj.mapper.usermapper;
 
-import com.lj.response.user.UserLimitResonse;
-import com.lj.response.user.UserResponse;
+import com.lj.response.UserLimitResonse;
+import com.lj.response.UserResponse;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
