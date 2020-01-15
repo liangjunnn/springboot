@@ -120,8 +120,8 @@ public class TestController extends BaseController {
                 String str = String.valueOf(cl_chars[i]);
                 // 如果字符是中文,则将中文转为汉语拼音,并取第一个字母大写，其他字母小写
                     if (str.matches("[\u4e00-\u9fa5]+")) {
-                    pascalSpell += PinyinHelper.toHanyuPinyinStringArray(cl_chars[i], upperFormat)[0].substring(0, 1);
-                    pascalSpell += PinyinHelper.toHanyuPinyinStringArray(cl_chars[i], lowerFormat)[0].substring(1);
+                    pascalSpell +=  " " + PinyinHelper.toHanyuPinyinStringArray(cl_chars[i], upperFormat)[0].substring(0, 1);
+                    pascalSpell +=  PinyinHelper.toHanyuPinyinStringArray(cl_chars[i], lowerFormat)[0].substring(1);
                     // 如果字符是数字,取数字
                 } else if (str.matches("[0-9]+")) {
                     pascalSpell += cl_chars[i];
@@ -139,7 +139,7 @@ public class TestController extends BaseController {
             return new Result<String>("400", "字符不能转成汉语拼音");
         }
         logger.info("返回的汉语拼音：{}", pascalSpell);
-        return new Result<String>(pascalSpell);
+        return new Result<String>(pascalSpell.toUpperCase());
     }
 
 }
